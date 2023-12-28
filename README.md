@@ -1,2 +1,2 @@
-# mslearn-ai-vision.fr-fr
-French repo for mslearn-ai-vision
+# mslearn-computer-vision
+Fichiers du labo pour les modules Azure AI Vision
