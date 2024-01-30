@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Classer des images avec un modèle personnalisé Azure\_AI\_Vision"
+  title: Classifier des images avec un modèle personnalisé Azure AI Vision
   module: Module 2 - Develop computer vision solutions with Azure AI Vision
 ---
 
-# Classer des images avec un modèle personnalisé Azure AI Vision
+# Classifier des images avec un modèle personnalisé Azure AI Vision
 
 Azure AI Vision vous permet d’effectuer l’apprentissage des modèles personnalisés pour classifier et détecter des objets assortis des étiquettes que vous spécifiez. Dans ce labo, nous allons créer un modèle de classification d’images personnalisé pour classifier des images de fruits.
 
@@ -17,14 +17,14 @@ Si vous n’avez pas déjà cloné le référentiel de code **Azure AI Vision** 
 3. Lorsque le référentiel a été cloné, ouvrez le dossier dans Visual Studio Code.
 4. Attendez que des fichiers supplémentaires soient installés pour prendre en charge les projets de code C# dans le référentiel.
 
-    > **Remarque** : Si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si le message *Projet de fonction Azure détecté dans le dossier* s’affiche, vous pouvez le fermer en toute sécurité.
+    > **Remarque** : si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si le message *Projet de fonction Azure détecté dans le dossier* s’affiche, vous pouvez le fermer en toute sécurité.
 
 ## Approvisionner des ressources Azure
 
-Si vous n’en avez pas encore dans votre abonnement, vous devez provisionner une ressource **Azure AI Services**.
+Si vous n’en avez pas encore dans votre abonnement, vous devez configurer une ressource **Azure AI Services**.
 
 1. Ouvrez le portail Azure à l’adresse `https://portal.azure.com` et connectez-vous avec le compte Microsoft associé à votre abonnement Azure.
-2. Dans la barre de recherche supérieure, recherchez *Azure AI Services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI Services avec les paramètres suivants :
+2. Dans la barre de recherche supérieure, recherchez *Azure AI services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI services avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*
     - **Groupe de ressources** : *Choisissez ou créez un groupe de ressources. (Si vous utilisez un abonnement restreint, vous n’avez peut-être pas l’autorisation de créer un groupe de ressources. Dans ce cas, utilisez le groupe fourni.)*
     - **Région** : *choisissez parmi USA Est, Europe Ouest, USA Ouest 2\**
