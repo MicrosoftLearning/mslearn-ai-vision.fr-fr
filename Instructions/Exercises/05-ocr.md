@@ -17,7 +17,7 @@ Si vous ne l’avez pas encore fait, vous devez cloner le référentiel de code 
 3. Lorsque le référentiel a été cloné, ouvrez le dossier dans Visual Studio Code.
 4. Attendez que des fichiers supplémentaires soient installés pour prendre en charge les projets de code C# dans le référentiel.
 
-    > **Remarque** : Si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si un message vous signale qu’*un projet Azure Functions a été détecté dans le dossier*, vous pouvez fermer ce message en toute sécurité.
+    > **Remarque** : si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si un message vous signale qu’*un projet Azure Functions a été détecté dans le dossier*, vous pouvez fermer ce message en toute sécurité.
 
 ## Provisionner une ressource Azure AI Services
 
@@ -49,7 +49,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **C#**
     
     ```csharp
-    dotnet add package Azure.AI.Vision.ImageAnalysis --prerelease
+    dotnet add package Azure.AI.Vision.ImageAnalysis -v 0.15.1-beta.1
     ```
 
     > **Remarque** : si vous êtes invité à installer des extensions du kit de développement, vous pouvez fermer le message en toute sécurité.
@@ -57,7 +57,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **Python**
     
     ```python
-    pip install azure-ai-vision
+    pip install azure-ai-vision==0.15.1b1
     ```
 
 3. Affichez le contenu du dossier **read-text**, et notez qu’il contient un fichier pour les paramètres de configuration :
