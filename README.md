@@ -1,2 +1,2 @@
-# mslearn-computer-vision
+# mslearn-ai-vision
 Fichiers du labo pour les modules Azure AI Vision
