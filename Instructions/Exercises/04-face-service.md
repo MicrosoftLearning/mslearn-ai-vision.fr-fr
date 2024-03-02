@@ -264,7 +264,7 @@ Vous êtes maintenant prêt à utiliser le kit de développement logiciel (SDK) 
 
 Bien que le service **AZure AI Vision** offre une détection des visages de base (ainsi que de nombreuses autres fonctionnalités d’analyse d’image), le service **Visage** apporte des fonctionnalités plus complètes pour l’analyse et la reconnaissance faciales.
 
-1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **19-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
+1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **04-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
 2. Cliquez avec le bouton droit sur le dossier **face-api** et ouvrez un terminal intégré. Installez ensuite le package SDK Visage en exécutant la commande appropriée pour votre préférence de langage :
 
     **C#**
