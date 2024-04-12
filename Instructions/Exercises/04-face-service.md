@@ -1,14 +1,16 @@
 ---
 lab:
   title: Détecter et analyser les visages
-  module: 'Module 10 - Detecting, Analyzing, and Recognizing Faces'
+  module: Module 4 - Detecting and Analyze Faces
 ---
 
 # Détecter et analyser les visages
 
 La possibilité de détecter et d’analyser les visages humains est une fonctionnalité fondamentale de l’IA. Dans cet exercice, vous allez découvrir deux services Azure AI Services que vous pouvez utiliser pour travailler avec les visages dans des images : le service **Azure AI Vision** et le service **Visage**.
 
-> **Remarque** : depuis le 21 juin 2022, les fonctionnalités d’Azure AI services qui retournent des informations d’identification personnelle sont limitées aux clients qui ont reçu [un accès limité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-limited-access). En outre, les fonctionnalités qui déduisent l’état émotionnel ne sont plus disponibles. Ces restrictions peuvent affecter cet exercice réalisé en labo. Nous nous efforçons de résoudre ce problème, mais en attendant, vous risquez de rencontrer certaines erreurs lors des étapes ci-dessous, et nous vous prions de bien vouloir nous en excuser. Pour plus d’informations sur les modifications apportées par Microsoft, et leur motif, consultez [Responsible AI investments and safeguards for facial recognition](https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/) (Investissements responsables en matière d'IA et mesures de protection pour la reconnaissance faciale).
+> **Important** : Ce labo peut être terminé sans demander d’accès supplémentaire aux fonctionnalités restreintes.
+
+> **Remarque** : depuis le 21 juin 2022, les fonctionnalités d’Azure AI services qui retournent des informations d’identification personnelle sont limitées aux clients qui ont reçu [un accès limité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-limited-access). En outre, les fonctionnalités qui déduisent l’état émotionnel ne sont plus disponibles. Pour plus d’informations sur les modifications apportées par Microsoft, et leur motif, consultez [Responsible AI investments and safeguards for facial recognition](https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/) (Investissements responsables en matière d'IA et mesures de protection pour la reconnaissance faciale).
 
 ## Cloner le référentiel pour ce cours
 
