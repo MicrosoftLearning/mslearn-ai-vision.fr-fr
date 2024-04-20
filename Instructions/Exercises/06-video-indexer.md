@@ -29,8 +29,9 @@ Tout d’abord, vous devez vous connecter au portail Video Analyzer et charger u
 
 1. Dans votre navigateur, ouvrez le portail Video Analyzer à l’adresse `https://www.videoindexer.ai`.
 2. Si vous disposez d’un compte Video Analyzer existant, connectez-vous. Sinon, créez un compte gratuit et connectez-vous à l’aide de votre compte Microsoft (ou tout autre type de compte valide). Si vous ne parvenez pas à vous connecter, essayez d’ouvrir une session de navigation privée.
-3. Dans Video Analyzer, sélectionnez l’option **Charger**. Sélectionnez ensuite l’option permettant d’**entrer une URL** et saisissez `https://aka.ms/responsible-ai-video`, puis cliquez sur **Ajouter**. Remplacez le nom par défaut par **IA responsable**, passez en revue les paramètres par défaut, cochez la case pour vérifier la conformité avec les politiques de Microsoft concernant la reconnaissance faciale, puis chargez le fichier.
-4. Une fois le fichier chargé, patientez quelques minutes pendant que Video Analyzer l’indexe automatiquement.
+3. Dans un nouvel onglet, téléchargez la vidéo IA responsable en visitant `https://aka.ms/responsible-ai-video`. Enregistrez le fichier.
+4. Dans Video Analyzer, sélectionnez l’option **Charger**. Sélectionnez ensuite l’option permettant de **Parcourir les fichiers**, sélectionnez la vidéo téléchargée, puis cliquez sur **Ajouter**. Remplacez le nom par défaut par **IA responsable**, passez en revue les paramètres par défaut, cochez la case pour vérifier la conformité avec les politiques de Microsoft concernant la reconnaissance faciale, puis chargez le fichier.
+5. Une fois le fichier chargé, patientez quelques minutes pendant que Video Analyzer l’indexe automatiquement.
 
 > **Remarque** : Dans cet exercice, nous utilisons cette vidéo pour explorer les fonctionnalités de Video Analyzer ; mais vous devriez prendre le temps de la regarder entièrement lorsque vous aurez terminé l’exercice, car elle contient des informations et des conseils utiles relatifs au développement d’applications compatibles avec l’IA de manière responsable. 
 
