@@ -1,7 +1,6 @@
 ---
 lab:
-  title: Classer des images avec Azure AI Custom Vision
-  module: Module 9 - Developing Custom Vision Solutions
+  title: Classer des images avec Azure AI Custom Vision (hérité)
 ---
 
 # Classer des images avec Azure AI Custom Vision
@@ -19,7 +18,7 @@ Si vous n’avez pas déjà cloné le référentiel de code **mslearn-ai-vision*
 3. Lorsque le référentiel a été cloné, ouvrez le dossier dans Visual Studio Code.
 4. Attendez que des fichiers supplémentaires soient installés pour prendre en charge les projets de code C# dans le référentiel.
 
-    > **Remarque** : Si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si un message vous signale qu’*un projet Azure Functions a été détecté dans le dossier*, vous pouvez fermer ce message en toute sécurité.
+    > **Remarque** : si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant). Si un message vous signale qu’*un projet Azure Functions a été détecté dans le dossier*, vous pouvez fermer ce message en toute sécurité.
 
 ## Créer des ressources Custom Vision
 
