@@ -198,7 +198,7 @@ L’une des fonctionnalités du kit de développement logiciel (SDK) d’**Azure
     // Draw bounding box around line
     var drawLinePolygon = true;
     
-    // Return each line detected in the image and the position bounding box around each line
+    // Return the position bounding box around each line
     
     
     
