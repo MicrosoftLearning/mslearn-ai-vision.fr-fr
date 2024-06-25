@@ -93,7 +93,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
 Dans cet exercice, vous allez utiliser le service Azure AI Vision pour analyser plusieurs images.
 
 1. Dans Visual Studio Code, développez le dossier **image-analysis** et le dossier **images** qu’il contient.
-2. Sélectionnez tour à tour chacun des fichiers image pour les afficher dans Visual Studio Code.
+2. Sélectionnez tour à tour chacun des fichiers images pour les afficher dans Visual Studio Code.
 
 ## Analyser une image pour suggérer une légende
 
