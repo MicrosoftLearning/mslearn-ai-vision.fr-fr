@@ -473,9 +473,9 @@ body = {
 response = requests.post(url, headers=headers, json=body)
 
 image=response.content
-with open("backgroundForeground.png", "wb") as file:
+with open("background.png", "wb") as file:
     file.write(image)
-print('  Results saved in backgroundForeground.png \n')
+print('  Results saved in background.png \n')
 ```
     
 2. Enregistrez vos modifications et exécutez le programme une fois pour chacun des fichiers image dans le dossier **images**. Ouvrez le fichier **background.png** généré dans le même dossier que votre fichier de code pour chaque image.  Observez le résultat de l’arrière-plan qui a été supprimé de chacune des images.
