@@ -24,18 +24,19 @@ Si vous n’avez pas déjà cloné le référentiel de code **Azure AI Vision** 
 Si vous n’en avez pas encore dans votre abonnement, vous devez configurer une ressource **Azure AI Services**.
 
 1. Ouvrez le portail Azure à l’adresse `https://portal.azure.com` et connectez-vous avec le compte Microsoft associé à votre abonnement Azure.
-2. Dans la barre de recherche supérieure, recherchez *Azure AI services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI services avec les paramètres suivants :
+2. Sélectionnez **Créer une ressource**.
+3. Dans la barre de recherche, recherchez *Azure AI Services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI Services avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*
     - **Groupe de ressources** : *Choisissez ou créez un groupe de ressources. (Si vous utilisez un abonnement restreint, vous n’avez peut-être pas l’autorisation de créer un groupe de ressources. Dans ce cas, utilisez le groupe fourni.)*
-    - **Région** : *vous avez le choix entre USA Est, France Centre, Corée Centre, Europe Nord, Asie Sud-Est, Europe Ouest, USA Ouest ou Asie Est\**
+    - **Région** : *choisissez parmi USA Est, USA Ouest, France Centre, Corée Centre, Europe Nord, Asie Sud-Est, Europe Ouest et Asie Est\**
     - **Nom** : *Entrez un nom unique.*
     - **Niveau tarifaire** : Standard S0
 
-    \*Les fonctionnalités d’Azure AI Vision 4.0 sont actuellement disponibles uniquement dans ces régions.
+    \*Les fonctionnalités complètes d’Azure AI Vision 4.0 sont actuellement disponibles uniquement dans ces régions.
 
-3. Cochez les cases nécessaires et créez la ressource.
-4. Attendez la fin du déploiement, puis visualisez les détails du déploiement.
-5. Une fois la ressource déployée, accédez-y et affichez sa page **Clés et point de terminaison**. Vous aurez besoin du point de terminaison et de l’une des clés de cette page dans la procédure suivante.
+4. Cochez les cases nécessaires et créez la ressource.
+5. Attendez la fin du déploiement, puis visualisez les détails du déploiement.
+6. Une fois la ressource déployée, accédez-y et affichez sa page **Clés et point de terminaison**. Vous aurez besoin du point de terminaison et de l’une des clés de cette page dans la procédure suivante.
 
 ## Se préparer à l’utilisation du kit de développement logiciel (SDK) d’Azure AI Vision
 
@@ -49,7 +50,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **C#**
     
     ```
-    dotnet add package Azure.AI.Vision.ImageAnalysis -v 1.0.0-beta.1
+    dotnet add package Azure.AI.Vision.ImageAnalysis -v 1.0.0-beta.3
     ```
 
     > **Remarque** : si vous êtes invité à installer des extensions du kit de développement, vous pouvez fermer le message en toute sécurité.
@@ -57,8 +58,10 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **Python**
     
     ```
-    pip install azure-ai-vision-imageanalysis==1.0.0b1
+    pip install azure-ai-vision-imageanalysis==1.0.0b3
     ```
+
+    > **Conseil** : si vous effectuez ce labo sur votre propre ordinateur, vous devez également installer `matplotlib` et `pillow`.
     
 3. Affichez le contenu du dossier **image-analysis**, et notez qu’il contient un fichier pour les paramètres de configuration :
     - **C#** : appsettings.json
