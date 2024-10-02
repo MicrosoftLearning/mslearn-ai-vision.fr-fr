@@ -49,7 +49,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **C#**
     
     ```
-    dotnet add package Azure.AI.Vision.ImageAnalysis -v 1.0.0-beta.1
+    dotnet add package Azure.AI.Vision.ImageAnalysis -v 1.0.0-beta.3
     ```
 
     > **Remarque** : si vous êtes invité à installer des extensions du kit de développement, vous pouvez fermer le message en toute sécurité.
@@ -57,7 +57,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **Python**
     
     ```
-    pip install azure-ai-vision-imageanalysis==1.0.0b1
+    pip install azure-ai-vision-imageanalysis==1.0.0b3
     ```
 
 3. Affichez le contenu du dossier **read-text**, et notez qu’il contient un fichier pour les paramètres de configuration :
@@ -70,7 +70,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
 
 ## Utiliser le kit de développement logiciel (SDK) d’Azure AI Vision pour lire du texte dans une image
 
-L’une des fonctionnalités du kit de développement logiciel (SDK) d’**Azure AI Vision** consiste à lire du texte dans une image. Dans cet exercice, vous allez effectuer une application cliente partiellement implémentée qui utilise le kit de développement logiciel (SDK) d’Azure AI Vision pour lire du texte dans une image.
+L’une des fonctionnalités du **kit de développement logiciel (SDK) d’Azure AI Vision** consiste à lire du texte dans une image. Dans cet exercice, vous allez effectuer une application cliente partiellement implémentée qui utilise le kit de développement logiciel (SDK) d’Azure AI Vision pour lire du texte dans une image.
 
 1. Le dossier **read-text** contient un fichier de code pour l’application cliente :
 
