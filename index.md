@@ -11,7 +11,5 @@ Les exercices suivants sont conçus pour prendre en charge les modules sur Micro
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %}
 
-{% for activity in labs  %} {% if activity.lab.title contains "Azure AI Custom Vision" %}  
-    {% continue %}  
-  {% endif %} 
+{% for activity in labs  %} 
   - [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }}) {% endfor %}
