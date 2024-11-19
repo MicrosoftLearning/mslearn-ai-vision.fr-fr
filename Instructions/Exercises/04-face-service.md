@@ -56,7 +56,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
     **Python**
 
     ```
-    pip install azure-ai-vision==1.0.0b3
+    pip install azure-ai-vision-imageanalysis==1.0.0b3
     ```
     
 3. Affichez le contenu du dossier **computer-vision**, et notez qu’il contient un fichier pour les paramètres de configuration :
@@ -209,13 +209,13 @@ Bien que le service **AZure AI Vision** offre une détection des visages de base
     **C#**
 
     ```
-    dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.8.0-preview.3
+    dotnet add package Azure.AI.Vision.Face -v 1.0.0-beta.2
     ```
 
     **Python**
 
     ```
-    pip install azure-cognitiveservices-vision-face==0.6.0
+    pip install azure-ai-vision-face==1.0.0b2
     ```
     
 3. Affichez le contenu du dossier **face-api**, et notez qu’il contient un fichier pour les paramètres de configuration :
@@ -235,17 +235,17 @@ Bien que le service **AZure AI Vision** offre une détection des visages de base
 
     ```C#
     // Import namespaces
-    using Microsoft.Azure.CognitiveServices.Vision.Face;
-    using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+    using Azure;
+    using Azure.AI.Vision.Face;
     ```
 
     **Python**
 
     ```Python
     # Import namespaces
-    from azure.cognitiveservices.vision.face import FaceClient
-    from azure.cognitiveservices.vision.face.models import FaceAttributeType
-    from msrest.authentication import CognitiveServicesCredentials
+    from azure.ai.vision.face import FaceClient
+    from azure.ai.vision.face.models import FaceDetectionModel, FaceRecognitionModel, FaceAttributeTypeDetection03
+    from azure.core.credentials import AzureKeyCredential
     ```
 
 7. Dans la fonction **Main**, notez que le code pour charger les paramètres de configuration a été fourni. Recherchez ensuite le commentaire **Authentifier le client Visage**. Ensuite, sous ce commentaire, ajoutez le code spécifique au langage suivant pour créer et authentifier un objet **FaceClient** :
@@ -254,26 +254,26 @@ Bien que le service **AZure AI Vision** offre une détection des visages de base
 
     ```C#
     // Authenticate Face client
-    ApiKeyServiceClientCredentials credentials = new ApiKeyServiceClientCredentials(cogSvcKey);
-    faceClient = new FaceClient(credentials)
-    {
-        Endpoint = cogSvcEndpoint
-    };
+    faceClient = new FaceClient(
+        new Uri(cogSvcEndpoint),
+        new AzureKeyCredential(cogSvcKey));
     ```
 
     **Python**
 
     ```Python
     # Authenticate Face client
-    credentials = CognitiveServicesCredentials(cog_key)
-    face_client = FaceClient(cog_endpoint, credentials)
+    face_client = FaceClient(
+        endpoint=cog_endpoint,
+        credential=AzureKeyCredential(cog_key)
+    )
     ```
 
 8. Dans la fonction **Main**, sous le code que vous venez d’ajouter, notez que le code affiche un menu qui vous permet d’appeler des fonctions dans votre code pour explorer les fonctionnalités du service Visage. Vous allez implémenter ces fonctions dans le reste de cet exercice.
 
 ## Détecter et analyser les visages
 
-L’une des fonctionnalités les plus fondamentales du service Visage consiste à détecter les visages dans une image et à déterminer leurs attributs, tels que la posture de tête, le niveau de flou, la présence de lunettes, etc.
+L’une des fonctionnalités les plus fondamentales du service Visage consiste à détecter les visages dans une image et à déterminer leurs attributs, tels que la posture de la tête, le niveau de flou, la présence d’un masque, etc.
 
 1. Dans le fichier de code de votre application, dans la fonction **Main**, examinez le code qui s’exécute si l’utilisateur sélectionne l’option de menu **1**. Ce code appelle la fonction **DetectFaces**, en passant le chemin vers un fichier image.
 2. Recherchez la fonction **DetectFaces** dans le fichier de code et, sous le commentaire **Spécifier les fonctionnalités faciales à récupérer**, ajoutez le code suivant :
@@ -282,11 +282,11 @@ L’une des fonctionnalités les plus fondamentales du service Visage consiste �
 
     ```C#
     // Specify facial features to be retrieved
-    IList<FaceAttributeType> features = new FaceAttributeType[]
+    FaceAttributeType[] features = new FaceAttributeType[]
     {
-        FaceAttributeType.Occlusion,
-        FaceAttributeType.Blur,
-        FaceAttributeType.Glasses
+        FaceAttributeType.Detection03.HeadPose,
+        FaceAttributeType.Detection03.Blur,
+        FaceAttributeType.Detection03.Mask
     };
     ```
 
@@ -294,20 +294,26 @@ L’une des fonctionnalités les plus fondamentales du service Visage consiste �
 
     ```Python
     # Specify facial features to be retrieved
-    features = [FaceAttributeType.occlusion,
-                FaceAttributeType.blur,
-                FaceAttributeType.glasses]
+    features = [FaceAttributeTypeDetection03.HEAD_POSE,
+                FaceAttributeTypeDetection03.BLUR,
+                FaceAttributeTypeDetection03.MASK]
     ```
 
 3. Dans la fonction **DetectFaces**, sous le code que vous venez d’ajouter, recherchez le commentaire **Obtenir des visages** et ajoutez le code suivant :
 
 **C#**
 
-```C
+```C#
 // Get faces
 using (var imageData = File.OpenRead(imageFile))
 {    
-    var detected_faces = await faceClient.Face.DetectWithStreamAsync(imageData, returnFaceAttributes: features, returnFaceId: false);
+    var response = await faceClient.DetectAsync(
+        BinaryData.FromStream(imageData),
+        FaceDetectionModel.Detection03,
+        FaceRecognitionModel.Recognition04,
+        returnFaceId: false,
+        returnFaceAttributes: features);
+    IReadOnlyList<FaceDetectionResult> detected_faces = response.Value;
 
     if (detected_faces.Count() > 0)
     {
@@ -328,10 +334,11 @@ using (var imageData = File.OpenRead(imageFile))
             Console.WriteLine($"\nFace number {faceCount}");
             
             // Get face properties
-            Console.WriteLine($" - Mouth Occluded: {face.FaceAttributes.Occlusion.MouthOccluded}");
-            Console.WriteLine($" - Eye Occluded: {face.FaceAttributes.Occlusion.EyeOccluded}");
+            Console.WriteLine($" - Head Pose (Yaw): {face.FaceAttributes.HeadPose.Yaw}");
+            Console.WriteLine($" - Head Pose (Pitch): {face.FaceAttributes.HeadPose.Pitch}");
+            Console.WriteLine($" - Head Pose (Roll): {face.FaceAttributes.HeadPose.Roll}");
             Console.WriteLine($" - Blur: {face.FaceAttributes.Blur.BlurLevel}");
-            Console.WriteLine($" - Glasses: {face.FaceAttributes.Glasses}");
+            Console.WriteLine($" - Mask: {face.FaceAttributes.Mask.Type}");
 
             // Draw and annotate face
             var r = face.FaceRectangle;
@@ -354,8 +361,13 @@ using (var imageData = File.OpenRead(imageFile))
 ```Python
 # Get faces
 with open(image_file, mode="rb") as image_data:
-    detected_faces = face_client.face.detect_with_stream(image=image_data,
-                                                            return_face_attributes=features,                     return_face_id=False)
+    detected_faces = face_client.detect(
+        image_content=image_data.read(),
+        detection_model=FaceDetectionModel.DETECTION03,
+        recognition_model=FaceRecognitionModel.RECOGNITION04,
+        return_face_id=False,
+        return_face_attributes=features,
+    )
 
     if len(detected_faces) > 0:
         print(len(detected_faces), 'faces detected.')
@@ -375,19 +387,11 @@ with open(image_file, mode="rb") as image_data:
             face_count += 1
             print('\nFace number {}'.format(face_count))
 
-            detected_attributes = face.face_attributes.as_dict()
-            if 'blur' in detected_attributes:
-                print(' - Blur:')
-                for blur_name in detected_attributes['blur']:
-                    print('   - {}: {}'.format(blur_name, detected_attributes['blur'][blur_name]))
-                    
-            if 'occlusion' in detected_attributes:
-                print(' - Occlusion:')
-                for occlusion_name in detected_attributes['occlusion']:
-                    print('   - {}: {}'.format(occlusion_name, detected_attributes['occlusion'][occlusion_name]))
-
-            if 'glasses' in detected_attributes:
-                print(' - Glasses:{}'.format(detected_attributes['glasses']))
+            print(' - Head Pose (Yaw): {}'.format(face.face_attributes.head_pose.yaw))
+            print(' - Head Pose (Pitch): {}'.format(face.face_attributes.head_pose.pitch))
+            print(' - Head Pose (Roll): {}'.format(face.face_attributes.head_pose.roll))
+            print(' - Blur: {}'.format(face.face_attributes.blur.blur_level))
+            print(' - Mask: {}'.format(face.face_attributes.mask.type))
 
             # Draw and annotate face
             r = face.face_rectangle
@@ -405,7 +409,7 @@ with open(image_file, mode="rb") as image_data:
         print('\nResults saved in', outputfile)
 ```
 
-4. Examinez le code que vous avez ajouté à la fonction **DetectFaces**. Il analyse un fichier image et détecte les visages qu’il contient, y compris les attributs relatifs à la couverture du visage, le niveau de flou et la présence de lunettes. Les détails de chaque visage sont affichés, notamment un identificateur de visage unique affecté à chaque visage. L'emplacement des visages est indiqué sur l’image à l’aide de rectangles englobants.
+4. Examinez le code que vous avez ajouté à la fonction **DetectFaces**. Il analyse un fichier image et détecte les visages qu’il contient, y compris les attributs relatifs à la posture de la tête, le niveau de flou et la présence d’un masque. Les détails de chaque visage sont affichés, notamment un identificateur de visage unique affecté à chaque visage. L'emplacement des visages est indiqué sur l’image à l’aide de rectangles englobants.
 5. Enregistrez vos modifications et revenez au terminal intégré pour le dossier **face-api** et entrez la commande suivante pour exécuter le programme :
 
     **C#**
@@ -431,4 +435,4 @@ Il existe plusieurs fonctionnalités supplémentaires disponibles dans le servic
 
 Pour plus d’informations sur l’utilisation du service **Azure AI Vision** pour la détection des visages, consultez la [documentation d’Azure AI Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-detecting-faces).
 
-Pour en savoir plus sur le service **Visage**, consultez la [documentation Visage](https://docs.microsoft.com/azure/cognitive-services/face/).
+Pour en savoir plus sur le service **Visage**, consultez la [documentation Visage](https://learn.microsoft.com/azure/ai-services/computer-vision/overview-identity).
