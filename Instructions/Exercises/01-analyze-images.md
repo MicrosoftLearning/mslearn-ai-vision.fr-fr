@@ -6,7 +6,7 @@ lab:
 
 # Analyser des images avec Azure AI Vision
 
-Azure AI Vision est une fonctionnalité d’intelligence artificielle qui permet aux systèmes logiciels d’interpréter les entrées visuelles en analysant les images. Dans Microsoft Azure, le service **Azur AI Vision** fournit des modèles prédéfinis pour les tâches courantes de vision par ordinateur, notamment l’analyse des images pour suggérer des légendes et des balises, la détection d’objets courants et de personnes. Vous pouvez également utiliser le service Azure AI Vision pour supprimer l’arrière-plan ou créer un détourage d’avant-plan des images.
+Azure AI Vision est une fonctionnalité d’intelligence artificielle qui permet aux systèmes logiciels d’interpréter les entrées visuelles en analysant les images. Dans Microsoft Azure, le service **Azur AI Vision** fournit des modèles prédéfinis pour les tâches courantes de vision par ordinateur, notamment l’analyse des images pour suggérer des légendes et des balises, la détection d’objets courants et de personnes. 
 
 ## Cloner le référentiel pour cette formation
 
@@ -408,86 +408,6 @@ if result.people is not None:
 3. Enregistrez vos modifications et exécutez le programme une fois pour chacun des fichiers image dans le dossier **images**, en observant tous les objets détectés. Après chaque exécution, affichez le fichier **objects.jpg** généré dans le même dossier que votre fichier de code pour voir les objets annotés.
 
 > **Remarque** : Dans les tâches précédentes, vous avez utilisé une méthode unique pour analyser l’image, puis ajouté de façon incrémentielle du code pour analyser et afficher les résultats. Le Kit de développement logiciel (SDK) fournit également des méthodes individuelles pour suggérer des légendes, identifier des balises, détecter des objets, etc., ce qui signifie que vous pouvez utiliser la méthode la plus appropriée pour retourner uniquement les informations dont vous avez besoin, réduisant ainsi la taille de la charge utile de données qui doit être retournée. Consultez la [documentation du SDK .NET](https://learn.microsoft.com/dotnet/api/overview/azure/cognitiveservices/computervision?view=azure-dotnet) ou la [documentation du SDK Python](https://learn.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) pour plus d’informations.
-
-## Supprimer l’arrière-plan ou générer un détourage d’avant-plan d’une image
-
-Dans certains cas, vous devrez peut-être supprimer l’arrière-plan d’une image ou vous souhaiterez créer un détourage d’avant-plan de cette image. Commençons par la suppression de l’arrière-plan.
-
-1. Dans votre fichier de code, recherchez la fonction **BackgroundForeground** ; ensuite, sous le commentaire **Supprimer l’arrière-plan de l’image ou générer un détourage d’avant-plan**, ajoutez le code suivant :
-
-**C#**
-
-```C#
-// Remove the background from the image or generate a foreground matte
-Console.WriteLine($" Background removal:");
-// Define the API version and mode
-string apiVersion = "2023-02-01-preview";
-string mode = "backgroundRemoval"; // Can be "foregroundMatting" or "backgroundRemoval"
-
-string url = $"computervision/imageanalysis:segment?api-version={apiVersion}&mode={mode}";
-
-// Make the REST call
-using (var client = new HttpClient())
-{
-    var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-    client.BaseAddress = new Uri(endpoint);
-    client.DefaultRequestHeaders.Accept.Add(contentType);
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-    var data = new
-    {
-        url = $"https://github.com/MicrosoftLearning/mslearn-ai-vision/blob/main/Labfiles/01-analyze-images/Python/image-analysis/{imageFile}?raw=true"
-    };
-
-    var jsonData = JsonSerializer.Serialize(data);
-    var contentData = new StringContent(jsonData, Encoding.UTF8, contentType);
-    var response = await client.PostAsync(url, contentData);
-
-    if (response.IsSuccessStatusCode) {
-        File.WriteAllBytes("background.png", response.Content.ReadAsByteArrayAsync().Result);
-        Console.WriteLine("  Results saved in background.png\n");
-    }
-    else
-    {
-        Console.WriteLine($"API error: {response.ReasonPhrase} - Check your body url, key, and endpoint.");
-    }
-}
-```
-
-**Python**
-
-```Python
-# Remove the background from the image or generate a foreground matte
-print('\nRemoving background from image...')
-    
-url = "{}computervision/imageanalysis:segment?api-version={}&mode={}".format(endpoint, api_version, mode)
-
-headers= {
-    "Ocp-Apim-Subscription-Key": key, 
-    "Content-Type": "application/json" 
-}
-
-image_url="https://github.com/MicrosoftLearning/mslearn-ai-vision/blob/main/Labfiles/01-analyze-images/Python/image-analysis/{}?raw=true".format(image_file)  
-
-body = {
-    "url": image_url,
-}
-    
-response = requests.post(url, headers=headers, json=body)
-
-image=response.content
-with open("background.png", "wb") as file:
-    file.write(image)
-print('  Results saved in background.png \n')
-```
-    
-2. Enregistrez vos modifications et exécutez le programme une fois pour chacun des fichiers image dans le dossier **images**. Ouvrez le fichier **background.png** généré dans le même dossier que votre fichier de code pour chaque image.  Observez le résultat de l’arrière-plan qui a été supprimé de chacune des images.
-
-Nous allons maintenant générer un détourage d’avant-plan pour nos images.
-
-3. Dans votre fichier de code, recherchez la fonction **BackgroundForeground** ; puis, sous le commentaire **Définir la version et le mode de l’API**, modifiez la variable de mode comme étant `foregroundMatting`.
-
-4. Enregistrez vos modifications et exécutez le programme une fois pour chacun des fichiers image dans le dossier **images**. Ouvrez le fichier **background.png** généré dans le même dossier que votre fichier de code pour chaque image.  Observez le résultat du détourage d’avant-plan qui a été généré pour vos images.
 
 ## Nettoyer les ressources
 
