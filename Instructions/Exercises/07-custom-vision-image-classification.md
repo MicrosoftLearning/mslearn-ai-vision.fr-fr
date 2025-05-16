@@ -46,7 +46,7 @@ Dans cet exercice, vous allez créer des ressources **Custom Vision** pour la fo
 
 Pour effectuer l’apprentissage d’un modèle de classification d’images, vous devez créer un projet Custom Vision basé sur votre ressource de formation. Pour ce faire, vous allez utiliser le portail Custom Vision.
 
-1. Dans Visual Studio Code, affichez les images de la formation dans le dossier **LabFiles/07-custom-vision-image-classification/training-images** où vous avez cloné le référentiel. Ce dossier contient des sous-dossiers d’images de pommes, de bananes et d’oranges.
+1. Dans Visual Studio Code, affichez les images de formation dans le dossier **LabFiles/07-custom-vision-image-classification/training-images** où vous avez cloné le référentiel. Ce dossier contient des sous-dossiers d’images de pommes, de bananes et d’oranges.
 2. Dans un autre onglet de navigateur, ouvrez le portail Custom Vision à l’adresse `https://customvision.ai`. Si vous y êtes invité, connectez-vous en utilisant le compte Microsoft associé à votre abonnement Azure et acceptez les conditions de service.
 3. Dans le portail Custom Vision, créez un nouveau projet avec les paramètres suivants :
     - **Nom** : Classer les fruits
