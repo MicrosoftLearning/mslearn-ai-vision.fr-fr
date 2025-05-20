@@ -44,7 +44,7 @@ Dans cet exercice, vous allez effectuer une application cliente partiellement im
 
 > **Remarque** : Vous pouvez choisir d’utiliser le kit de développement logiciel (SDK) pour **C#** ou **Python**. Dans les étapes qui suivent, effectuez les actions appropriées pour votre langage préféré.
 
-1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **04-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
+1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **Labfiles/04-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
 2. Cliquez avec le bouton droit sur le dossier **Vision par ordinateur** et ouvrez un terminal intégré. Installez ensuite le package du kit de développement logiciel (SDK) d’Azure AI Vision en exécutant la commande appropriée pour votre préférence de langage :
 
     **C#**
@@ -203,7 +203,7 @@ Si vous souhaitez voir le score de confiance de toutes les personnes détectées
 
 Bien que le service **AZure AI Vision** offre une détection des visages de base (ainsi que de nombreuses autres fonctionnalités d’analyse d’image), le service **Visage** apporte des fonctionnalités plus complètes pour l’analyse et la reconnaissance faciales.
 
-1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **04-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
+1. Dans Visual Studio Code, dans le volet **Explorateur**, accédez au dossier **Labfiles/04-face** et développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
 2. Cliquez avec le bouton droit sur le dossier **face-api** et ouvrez un terminal intégré. Installez ensuite le package SDK Visage en exécutant la commande appropriée pour votre préférence de langage :
 
     **C#**

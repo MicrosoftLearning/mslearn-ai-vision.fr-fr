@@ -57,7 +57,7 @@ Pour former un modèle de détection d’objets, vous devez créer un projet Cus
 
 Pour former un modèle de détection d’objets, vous devez télécharger des images qui contiennent les classes que vous souhaitez que le modèle identifie, et les marquer pour qu’elles indiquent des zones englobantes pour chaque instance d’objet.
 
-1. Dans Visual Studio Code, affichez les images de formation dans le dossier **03-object-detection/training-images** où vous avez cloné le référentiel. Ce dossier contient des images de fruits.
+1. Dans Visual Studio Code, affichez les images de formation dans le dossier **Labfiles/03-object-detection/training-images** où vous avez cloné le référentiel. Ce dossier contient des images de fruits.
 2. Dans le portail Vision personnalisée, dans votre projet de détection d'objets, sélectionnez **Ajouter des images** et téléchargez toutes les images du dossier extrait.
 3. Une fois les images téléchargées, sélectionnez la première pour l’ouvrir.
 4. Maintenez la souris sur un objet dans l’image jusqu’à ce qu’une zone détectée automatiquement soit affichée comme l’image ci-dessous. Sélectionnez ensuite l’objet et, si nécessaire, redimensionnez la région pour l’entourer.
@@ -89,7 +89,7 @@ Vous pouvez utiliser l’interface utilisateur du portail Custom Vision pour é
 1. Cliquez sur l’icône *paramètres* (&#9881;) en haut à droite de la page **Images de formation** dans le portail Custom Vision pour afficher les paramètres du projet.
 2. Sous **Général** (à gauche), notez l’**ID de projet** qui identifie ce projet de façon unique.
 3. La clé et le point de terminaison s’affichent à droite, sous la section **Ressources**. Vous y trouverez les détails de la ressource de *formation* (vous pouvez également obtenir ces informations en consultant la ressource dans le Portail Azure).
-4. Dans Visual Studio Code, dans le dossier **03-object-detection**, développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
+4. Dans Visual Studio Code, dans le dossier **Labfiles/03-object-detection**, développez le dossier **C-Sharp** ou **Python** en fonction de votre préférence de langage.
 5. Cliquez avec le bouton droit de la souris sur le dossier **train-detector** et ouvrez un terminal intégré. Installez ensuite le package de formation Custom Vision en exécutant la commande appropriée pour votre préférence de langage :
 
 **C#**
@@ -145,7 +145,7 @@ pip install azure-cognitiveservices-vision-customvision==3.1.1
 
 ## Formation et test d’un modèle
 
-Maintenant que vous avez balisé les images de votre projet, vous pouvez former un modèle. pour
+Maintenant que vous avez balisé les images de votre projet, vous pouvez former un modèle. Vous
 
 1. Dans le projet Custom Vision, cliquez sur **Former** pour former un modèle de détection d’objets à l’aide des images balisées. Sélectionnez l’option **Entraînement rapide**.
 2. Attendez la fin de la formation (cela peut prendre une dizaine de minutes), puis vérifiez les mesures de performance *Précision*, *Rappel*, et *mAP* ; elles mesurent la précision de prédiction du modèle de classification et doivent toutes être élevées.
@@ -165,7 +165,7 @@ Vous êtes maintenant prêt à publier votre modèle formé et à l’utiliser �
 
 Maintenant que vous avez publié le modèle de classification d’images, vous pouvez l’utiliser à partir d’une application cliente. Là encore, vous avez le choix entre les langages **C#** et **Python**.
 
-1. Dans Visual Studio Code, accédez au dossier **03-object-detection** et, dans le dossier correspond au langage que vous avez choisi (**C-Sharp** ou **Python**), développez le dossier **test-detector**.
+1. Dans Visual Studio Code, accédez au dossier **Labfiles/03-object-detection** et, dans le dossier correspond au langage que vous avez choisi (**C-Sharp** ou **Python**), développez le dossier **test-detector**.
 2. Cliquez avec le bouton droit de la souris sur le dossier **test-detector** et ouvrez un terminal intégré. Entrez ensuite la commande suivante, selon votre kit de développement logiciel (SDK), pour installer le package de prédiction Custom Vision :
 
 **C#**
