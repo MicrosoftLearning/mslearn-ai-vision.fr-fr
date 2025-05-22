@@ -82,7 +82,7 @@ Vous pouvez utiliser Video Indexer pour rechercher des insights dans la vidéo.
 
 Le portail Video Indexer constitue une interface utile pour gérer les projets d’indexation vidéo. Toutefois, il peut arriver que vous souhaitiez rendre la vidéo et ses insights accessibles aux personnes qui n’ont pas accès à votre compte Video Indexer. Video Indexer fournit des widgets que vous pouvez incorporer dans une page web à cet effet.
 
-1. Dans Visual Studio Code, dans le dossier **06-video-indexer**, ouvrez **analyze-video.html**. Il s’agit d’une page HTML de base à laquelle vous allez ajouter le **Lecteur** Video Indexer et des widgets **Insights**. Notez la référence au script **vb.widgets.mediator.js** dans l’en-tête. Ce script permet à plusieurs widgets Video Indexer sur la page d’interagir les uns avec les autres.
+1. Dans Visual Studio Code, dans le dossier **Labfiles/06-video-indexer**, ouvrez **analyze-video.html**. Il s’agit d’une page HTML de base à laquelle vous allez ajouter le **Lecteur** Video Indexer et des widgets **Insights**. Notez la référence au script **vb.widgets.mediator.js** dans l’en-tête. Ce script permet à plusieurs widgets Video Indexer sur la page d’interagir les uns avec les autres.
 2. Dans le portail Video Indexer, revenez à la page **Fichiers multimédias** et ouvrez votre vidéo **IA responsable**.
 3. Sous le lecteur vidéo, sélectionnez **&lt;/&gt; Incorporer** pour afficher le code iframe HTML afin d’incorporer les widgets.
 4. Dans la boîte de dialogue **Partager et incorporer**, sélectionnez le widget **Lecteur**, définissez la taille de la vidéo sur 560 x 315, puis copiez le code incorporé dans le Presse-papiers.
@@ -117,7 +117,7 @@ Toutes les interactions avec l’API REST Video Indexer suivent le même modèle
 - Une demande initiale à la méthode **AccessToken** avec la clé API dans l’en-tête est utilisée pour obtenir un jeton d’accès.
 - Les demandes suivantes utilisent le jeton d’accès pour s’authentifier lors de l’appel de méthodes REST pour utiliser des vidéos.
 
-1. Dans Visual Studio Code, dans le dossier **06-video-indexer**, ouvrez **get-videos.ps1**.
+1. Dans Visual Studio Code, dans le dossier **Labfiles/06-video-indexer**, ouvrez **get-videos.ps1**.
 2. Dans le script PowerShell, remplacez les espaces réservés **YOUR_ACCOUNT_ID** et **YOUR_API_KEY** par les valeurs de l’ID de compte et de la clé API que vous avez identifiées précédemment.
 3. Notez que l’*emplacement* d’un compte gratuit est « essai ». Si vous avez créé un compte Video Indexer illimité (avec une ressource Azure associée), vous pouvez le remplacer par l’emplacement où votre ressource Azure est approvisionnée (par exemple, « eastus »).
 4. Passez en revue le code dans le script, en notant que deux méthodes REST sont appelées : une pour obtenir un jeton d’accès et une autre pour répertorier les vidéos dans votre compte.
